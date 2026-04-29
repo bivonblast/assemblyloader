@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-Worker-c9ab2c05-7438-4053-b6a1-3ace76751bd6</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.2"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AssemblyLoader.InternalProcess\AssemblyLoader.InternalProcess.csproj" />
+      <ProjectReference Include="..\AssemblyLoader.Model\AssemblyLoader.Model.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Assemblies\AssemblyLoader.ExternalProcess.dll" />
+      <Content Include="Assemblies\AssemblyLoader.ExternalProcess.dll">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+</Project>
